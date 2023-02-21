@@ -90,7 +90,9 @@ public class Main {
             } else if (userInput.equals("7")) {
 
                 out.println("What Train?");
-                String
+                String inputTrain = userScan.nextLine();
+
+                Commands.viewInfoTrain(inputTrain);
 
             } else {
                 out.println("ERROR: NO COMMAND MATCHES WITH " + userInput);
