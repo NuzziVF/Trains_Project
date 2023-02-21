@@ -97,6 +97,7 @@ public class Commands {
     public static void viewAllTrains() {
         Connection connection;
         Statement statement;
+        ResultSet rs = null;
 
         ConnectDB obj_ConnectDB = new ConnectDB();
 
@@ -105,7 +106,28 @@ public class Commands {
         try {
             String query = "SELECT * FROM trains";
             statement = connection.createStatement();
-            statement.executeUpdate(query);
+            rs=statement.executeQuery(query);
+
+            out.println("Train All info:");
+
+            while (rs.next()) {
+                out.print("Name: ");
+                out.print(rs.getString(2));
+                out.print("      ");
+                out.print("Cargo: ");
+                out.print(rs.getString(3));
+                out.print("      ");
+                out.print("Speed: ");
+                out.print(rs.getString(4));
+                out.print("mph      ");
+                out.print("Maker: ");
+                out.print(rs.getString(5));
+                out.print("      ");
+                out.print("Production Date: ");
+                out.print(rs.getString(6));
+                out.println();
+                out.println();
+            }
 
             out.println("Value Successfully Inserted");
 
@@ -116,6 +138,7 @@ public class Commands {
     public static void viewAllStation() {
         Connection connection;
         Statement statement;
+        ResultSet rs = null;
 
         ConnectDB obj_ConnectDB = new ConnectDB();
 
@@ -125,7 +148,15 @@ public class Commands {
 
             String query = "SELECT * FROM station";
             statement = connection.createStatement();
-            statement.executeUpdate(query);
+            rs=statement.executeQuery(query);
+
+            out.println("Station Info: ");
+            while (rs.next()) {
+                out.print("Name: ");
+                out.print(rs.getString(2));
+                out.println();
+                out.println();
+            }
 
             out.println("Value Successfully Inserted");
 
