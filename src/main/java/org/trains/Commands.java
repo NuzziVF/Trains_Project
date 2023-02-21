@@ -48,20 +48,20 @@ public class Commands {
 
         try {
 
-            String query = "SELECT FROM station WHERE station_name = '" + inputCurrentStation + "'";
+            String query = "SELECT * FROM station WHERE station_name = '" + inputCurrentStation + "'";
 
             statement = connection.createStatement();
             rs=statement.executeQuery(query);
 
-            while (rs.next()) {
-                int trainCurrentLocationId = Integer.parseInt(rs.getString(1));
-            }
+            rs.next();
+            int trainCurrentLocationId = Integer.parseInt(rs.getString(1));
 
-            String query2 = "SELECT FROM station WHERE station_name = '" + inputDestination + "'";
+            String query2 = "SELECT * FROM station WHERE station_name = '" + inputDestination + "'";
 
             statement = connection.createStatement();
             rs=statement.executeQuery(query2);
 
+            rs.next();
             int trainDestinationId = Integer.parseInt(rs.getString(1));
 
             String query3 = "insert into trains (train_name, cargo, speed, maker, produc_year, current_location_id, next_destination_id) values('" + inputTrainName + "', '" + inputCargo + "', " + inputSpeed + ", '" + inputTrainMaker + "', '" + inputDate + "', " + trainCurrentLocationId + ", " + trainDestinationId + ")";

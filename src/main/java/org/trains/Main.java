@@ -8,7 +8,7 @@ import static java.lang.System.out;
 
 // todo: Need to add
         //  -Add a new Train
-        // todo: -Add a new Station
+        //  -Add a new Station
         // todo: -Change Trains Destination
         // todo: -Read info on selected train
         // todo: -Read info on Trains in Station
