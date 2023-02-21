@@ -11,7 +11,7 @@ import static java.lang.System.out;
         //  -Add a new Station
         //  -Change Trains Destination
         //  -Read info on Trains in Station
-        // todo: -Read info on selected train
+        //  -Read info on selected train
 public class Main {
     public static void main(String[] args) {
         Scanner userScan = new Scanner(in);
@@ -94,6 +94,8 @@ public class Main {
 
                 Commands.viewInfoTrain(inputTrain);
             } else if (userInput.equals("go")){
+
+                Commands.goMethod();
 
             }else if (userInput.equals("help")){
                 out.println("\"station details\" is to view the details of a single station");
