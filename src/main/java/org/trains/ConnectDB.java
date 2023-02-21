@@ -11,11 +11,11 @@ public class ConnectDB {
         Connection connection = null;
 
         try {
-
             Class.forName("org.postgresql.Driver");
             connection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres", "postgres", "root");
-            out.println(connection != null ? "Connection Success" : "Connection Failure");
+//            out.println(connection != null ? "Connection Success" : "Connection Failure");
         } catch (Exception e) {
+            out.println(connection != null ? "Connection Success" : "Connection Failure");
             out.println(e);
         }
         return connection;
