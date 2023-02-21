@@ -69,15 +69,15 @@ public class Main {
                 String inputStationName = userScan.nextLine();
                 Commands.insertStation(inputStationName);
 
-            } else if (userInput.equals("veiw all trains")) {
+            } else if (userInput.equals("view all trains")) {
 
                 Commands.viewAllTrains();
 
-            } else if (userInput.equals("veiw all stations")) {
+            } else if (userInput.equals("view all stations")) {
 
                 Commands.viewAllStation();
 
-            } else if (userInput.equals("move train")) {
+            } else if (userInput.equals("alter destination")) {
 
                 out.println("What Train?");
                 String inputTrain = userScan.nextLine();
@@ -93,14 +93,17 @@ public class Main {
                 String inputTrain = userScan.nextLine();
 
                 Commands.viewInfoTrain(inputTrain);
-            } else if (userInput.equals("help")){
-                out.println("\"station details\" is to veiw the details of a single station");
-                out.println("\"veiw all stations\" is to veiw the details of all stations");
-                out.println("\"train detail\" is to veiw the details of a single train");
-                out.println("\"view all trains\" is to veiw the details of all trains");
+            } else if (userInput.equals("go")){
+
+            }else if (userInput.equals("help")){
+                out.println("\"station details\" is to view the details of a single station");
+                out.println("\"view all stations\" is to view the details of all stations");
+                out.println("\"train detail\" is to view the details of a single train");
+                out.println("\"view all trains\" is to view the details of all trains");
                 out.println("\"create station\" is to create a station");
                 out.println("\"create train\" is to create a train");
-                out.println("\"move train\" is to move a train");
+                out.println("\"alter destination\" is to change the destination of a train");
+                out.println("\"go\" is to move a train");
 
 
             } else {
