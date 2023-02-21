@@ -55,21 +55,11 @@ public class Main {
 
                 String inputDate = inputYear + "-" + inputMonth + "-" + inputDay;
 
-                out.println(inputDate);
-
                 out.println("What Station is the train at?");
                 String inputCurrentStation = userScan.nextLine();
 
                 out.println("Where is it going?");
                 String inputDestination = userScan.nextLine();
-
-                out.println(inputTrainName);
-                out.println(inputCargo);
-                out.println(inputSpeed);
-                out.println(inputTrainMaker);
-                out.println(inputDate);
-                out.println(inputCurrentStation);
-                out.println(inputDestination);
 
                 Commands.insertTrain(inputTrainName, inputCargo, inputSpeed, inputTrainMaker, inputDate, inputCurrentStation, inputDestination);
 
@@ -80,7 +70,21 @@ public class Main {
                 Commands.insertStation(inputStationName);
 
             } else if (userInput.equals("4")) {
+
+                Commands.viewAllTrains();
+
+            } else if (userInput.equals("5")) {
+
+                Commands.viewAllStation();
+
+            } else if (userInput.equals("6")) {
+
                 out.println("Something");
+
+            } else if (userInput.equals("7")) {
+
+                out.println("Something");
+
             } else {
                 out.println("ERROR: NO COMMAND MATCHES WITH " + userInput);
             }

@@ -94,4 +94,43 @@ public class Commands {
             out.println(e);
         }
     }
+    public static void viewAllTrains() {
+        Connection connection;
+        Statement statement;
+
+        ConnectDB obj_ConnectDB = new ConnectDB();
+
+        connection = obj_ConnectDB.get_connection();
+
+        try {
+            String query = "SELECT * FROM trains";
+            statement = connection.createStatement();
+            statement.executeUpdate(query);
+
+            out.println("Value Successfully Inserted");
+
+        } catch (Exception e) {
+            out.println(e);
+        }
+    }
+    public static void viewAllStation() {
+        Connection connection;
+        Statement statement;
+
+        ConnectDB obj_ConnectDB = new ConnectDB();
+
+        connection = obj_ConnectDB.get_connection();
+
+        try {
+
+            String query = "SELECT * FROM station";
+            statement = connection.createStatement();
+            statement.executeUpdate(query);
+
+            out.println("Value Successfully Inserted");
+
+        } catch (Exception e) {
+            out.println(e);
+        }
+    }
 }
