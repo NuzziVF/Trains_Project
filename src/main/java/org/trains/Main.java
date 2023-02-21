@@ -19,11 +19,11 @@ public class Main {
         while (true) {
             out.println("What would you like to do?");
             String userInput = userScan.nextLine().toLowerCase();
-            if (userInput.equals("1")) {
-                out.println("What Station?");
+            if (userInput.equals("station details")) {
+                out.println("What station would you like the details of?");
                 String userChoice = userScan.nextLine();
                 Commands.trainsInStation(userChoice);
-            } else if (userInput.equals("2")) {
+            } else if (userInput.equals("create train")) {
                 out.println("What is the train's name?");
                 String inputTrainName = userScan.nextLine();
 
@@ -63,21 +63,21 @@ public class Main {
 
                 Commands.insertTrain(inputTrainName, inputCargo, inputSpeed, inputTrainMaker, inputDate, inputCurrentStation, inputDestination);
 
-            } else if (userInput.equals("3")) {
+            } else if (userInput.equals("create station")) {
 
                 out.println("What is the name of the station?");
                 String inputStationName = userScan.nextLine();
                 Commands.insertStation(inputStationName);
 
-            } else if (userInput.equals("4")) {
+            } else if (userInput.equals("veiw all trains")) {
 
                 Commands.viewAllTrains();
 
-            } else if (userInput.equals("5")) {
+            } else if (userInput.equals("veiw all stations")) {
 
                 Commands.viewAllStation();
 
-            } else if (userInput.equals("6")) {
+            } else if (userInput.equals("move train")) {
 
                 out.println("What Train?");
                 String inputTrain = userScan.nextLine();
@@ -87,15 +87,25 @@ public class Main {
 
                 Commands.alterDestination(inputTrain, inputStation);
 
-            } else if (userInput.equals("7")) {
+            } else if (userInput.equals("train details")) {
 
                 out.println("What Train?");
                 String inputTrain = userScan.nextLine();
 
                 Commands.viewInfoTrain(inputTrain);
+            } else if (userInput.equals("help")){
+                out.println("\"station details\" is to veiw the details of a single station");
+                out.println("\"veiw all stations\" is to veiw the details of all stations");
+                out.println("\"train detail\" is to veiw the details of a single train");
+                out.println("\"view all trains\" is to veiw the details of all trains");
+                out.println("\"create station\" is to create a station");
+                out.println("\"create train\" is to create a train");
+                out.println("\"move train\" is to move a train");
+
 
             } else {
                 out.println("ERROR: NO COMMAND MATCHES WITH " + userInput);
+                out.println("Please type \"help\" for function names");
             }
         }
     }
