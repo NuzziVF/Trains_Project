@@ -249,13 +249,11 @@ public class Commands {
         connection = obj_ConnectDB.get_connection();
 
         try {
-
             String query = "SELECT * FROM trains";
             statement = connection.createStatement();
             rs=statement.executeQuery(query);
 
             List<List> l = new ArrayList<>();
-
 
             while (rs.next()) {
                 List<String> l2 = new ArrayList<>();
@@ -269,52 +267,15 @@ public class Commands {
                 l2.add(rs.getString(8));
                 l.add(l2);
             }
-            out.println(l);
+            for (List each: l) {
+                String query2 = "UPDATE trains SET current_location_id = " + each.get(7) + " WHERE train_name = '" + each.get(1) + "'";
+                statement = connection.createStatement();
+                statement.executeUpdate(query2);
 
-        } catch (Exception e) {
-            out.println(e);
-        }
-    }
-
-    public static void main(String[] args) {
-        Connection connection;
-        Statement statement;
-        ResultSet rs = null;
-
-        ConnectDB obj_ConnectDB = new ConnectDB();
-
-        connection = obj_ConnectDB.get_connection();
-
-        try {
-
-            String query = "SELECT * FROM trains";
-            statement = connection.createStatement();
-            rs=statement.executeQuery(query);
-
-            List<List> l = new ArrayList<>();
-
-
-            while (rs.next()) {
-                List<String> l2 = new ArrayList<>();
-                l2.add(rs.getString(1));
-                l2.add(rs.getString(2));
-                l2.add(rs.getString(3));
-                l2.add(rs.getString(4));
-                l2.add(rs.getString(5));
-                l2.add(rs.getString(6));
-                l2.add(rs.getString(7));
-                l2.add(rs.getString(8));
-                l.add(l2);
+                String query3 = "UPDATE trains SET next_destination_id = " + each.get(6) + " WHERE train_name = '" + each.get(1) + "'";
+                statement = connection.createStatement();
+                statement.executeUpdate(query3);
             }
-            out.println(l);
-            for (String:
-                 ) {
-                
-            }
-
-
-
-
         } catch (Exception e) {
             out.println(e);
         }
