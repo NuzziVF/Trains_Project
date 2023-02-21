@@ -10,9 +10,9 @@ import static java.lang.System.out;
 
 public class Commands {
     public static void trainsInStation(String userInput) {
-        Connection connection = null;
-        Statement statement = null;
-        ResultSet rs = null;
+        Connection connection;
+        Statement statement;
+        ResultSet rs;
 
         ConnectDB obj_ConnectDB = new ConnectDB();
 
@@ -42,7 +42,7 @@ public class Commands {
     public static void insertTrain(String inputTrainName, String inputCargo, int inputSpeed, String inputTrainMaker, String inputDate, String inputCurrentStation, String inputDestination) {
         Connection connection;
         Statement statement;
-        ResultSet rs = null;
+        ResultSet rs;
 
         ConnectDB obj_ConnectDB = new ConnectDB();
 
@@ -99,7 +99,7 @@ public class Commands {
     public static void viewAllTrains() {
         Connection connection;
         Statement statement;
-        ResultSet rs = null;
+        ResultSet rs;
 
         ConnectDB obj_ConnectDB = new ConnectDB();
 
@@ -140,7 +140,7 @@ public class Commands {
     public static void viewAllStation() {
         Connection connection;
         Statement statement;
-        ResultSet rs = null;
+        ResultSet rs;
 
         ConnectDB obj_ConnectDB = new ConnectDB();
 
@@ -169,7 +169,7 @@ public class Commands {
     public static void alterDestination(String inputTrain, String inputDestination) {
         Connection connection;
         Statement statement;
-        ResultSet rs = null;
+        ResultSet rs;
 
         ConnectDB obj_ConnectDB = new ConnectDB();
 
@@ -201,7 +201,7 @@ public class Commands {
     public static void viewInfoTrain(String inputTrainName) {
         Connection connection;
         Statement statement;
-        ResultSet rs = null;
+        ResultSet rs;
 
         ConnectDB obj_ConnectDB = new ConnectDB();
 
@@ -242,7 +242,7 @@ public class Commands {
     public static void goMethod() {
         Connection connection;
         Statement statement;
-        ResultSet rs = null;
+        ResultSet rs;
 
         ConnectDB obj_ConnectDB = new ConnectDB();
 
