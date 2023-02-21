@@ -3,6 +3,8 @@ package org.trains;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 import static java.lang.System.out;
 
@@ -232,6 +234,86 @@ public class Commands {
             }
 
             out.println("Value Successfully Inserted");
+
+        } catch (Exception e) {
+            out.println(e);
+        }
+    }
+    public static void goMethod() {
+        Connection connection;
+        Statement statement;
+        ResultSet rs = null;
+
+        ConnectDB obj_ConnectDB = new ConnectDB();
+
+        connection = obj_ConnectDB.get_connection();
+
+        try {
+
+            String query = "SELECT * FROM trains";
+            statement = connection.createStatement();
+            rs=statement.executeQuery(query);
+
+            List<List> l = new ArrayList<>();
+
+
+            while (rs.next()) {
+                List<String> l2 = new ArrayList<>();
+                l2.add(rs.getString(1));
+                l2.add(rs.getString(2));
+                l2.add(rs.getString(3));
+                l2.add(rs.getString(4));
+                l2.add(rs.getString(5));
+                l2.add(rs.getString(6));
+                l2.add(rs.getString(7));
+                l2.add(rs.getString(8));
+                l.add(l2);
+            }
+            out.println(l);
+
+        } catch (Exception e) {
+            out.println(e);
+        }
+    }
+
+    public static void main(String[] args) {
+        Connection connection;
+        Statement statement;
+        ResultSet rs = null;
+
+        ConnectDB obj_ConnectDB = new ConnectDB();
+
+        connection = obj_ConnectDB.get_connection();
+
+        try {
+
+            String query = "SELECT * FROM trains";
+            statement = connection.createStatement();
+            rs=statement.executeQuery(query);
+
+            List<List> l = new ArrayList<>();
+
+
+            while (rs.next()) {
+                List<String> l2 = new ArrayList<>();
+                l2.add(rs.getString(1));
+                l2.add(rs.getString(2));
+                l2.add(rs.getString(3));
+                l2.add(rs.getString(4));
+                l2.add(rs.getString(5));
+                l2.add(rs.getString(6));
+                l2.add(rs.getString(7));
+                l2.add(rs.getString(8));
+                l.add(l2);
+            }
+            out.println(l);
+            for (String:
+                 ) {
+                
+            }
+
+
+
 
         } catch (Exception e) {
             out.println(e);
