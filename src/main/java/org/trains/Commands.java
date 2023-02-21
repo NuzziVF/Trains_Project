@@ -164,4 +164,77 @@ public class Commands {
             out.println(e);
         }
     }
+    public static void alterDestination(String inputTrain, String inputDestination) {
+        Connection connection;
+        Statement statement;
+        ResultSet rs = null;
+
+        ConnectDB obj_ConnectDB = new ConnectDB();
+
+        connection = obj_ConnectDB.get_connection();
+
+        try {
+
+            String query = "SELECT * FROM station WHERE station_name = '" + inputDestination + "'";
+
+            statement = connection.createStatement();
+            rs = statement.executeQuery(query);
+
+            rs.next();
+            int trainDestinationId = Integer.parseInt(rs.getString(1));
+
+            String query2 = "UPDATE trains SET next_destination_id = " + trainDestinationId + " WHERE train_name = '" + inputTrain + "'";
+
+            statement = connection.createStatement();
+            statement.executeUpdate(query2);
+
+
+            out.println("Value Successfully Inserted");
+
+        } catch (Exception e) {
+            out.println(e);
+        }
+    }
+
+    public static void viewInfoTrain(String inputTrainName) {
+        Connection connection;
+        Statement statement;
+        ResultSet rs = null;
+
+        ConnectDB obj_ConnectDB = new ConnectDB();
+
+        connection = obj_ConnectDB.get_connection();
+
+        try {
+
+            String query = "SELECT * FROM trains WHERE train_name = '" + inputTrainName + "'";
+            statement = connection.createStatement();
+            rs=statement.executeQuery(query);
+
+            out.println("Train Info: ");
+            while (rs.next()) {
+                out.print("Name: ");
+                out.print(rs.getString(2));
+                out.print("      ");
+                out.print("Cargo: ");
+                out.print(rs.getString(3));
+                out.print("      ");
+                out.print("Speed: ");
+                out.print(rs.getString(4));
+                out.print("mph      ");
+                out.print("Maker: ");
+                out.print(rs.getString(5));
+                out.print("      ");
+                out.print("Production Date: ");
+                out.print(rs.getString(6));
+                out.println();
+                out.println();
+            }
+
+            out.println("Value Successfully Inserted");
+
+        } catch (Exception e) {
+            out.println(e);
+        }
+    }
 }

@@ -9,9 +9,9 @@ import static java.lang.System.out;
 // todo: Need to add
         //  -Add a new Train
         //  -Add a new Station
-        // todo: -Change Trains Destination
+        //  -Change Trains Destination
+        //  -Read info on Trains in Station
         // todo: -Read info on selected train
-        // todo: -Read info on Trains in Station
 public class Main {
     public static void main(String[] args) {
         Scanner userScan = new Scanner(in);
@@ -79,11 +79,18 @@ public class Main {
 
             } else if (userInput.equals("6")) {
 
-                out.println("Something");
+                out.println("What Train?");
+                String inputTrain = userScan.nextLine();
+
+                out.println("What Station?");
+                String inputStation = userScan.nextLine();
+
+                Commands.alterDestination(inputTrain, inputStation);
 
             } else if (userInput.equals("7")) {
 
-                out.println("Something");
+                out.println("What Train?");
+                String
 
             } else {
                 out.println("ERROR: NO COMMAND MATCHES WITH " + userInput);
