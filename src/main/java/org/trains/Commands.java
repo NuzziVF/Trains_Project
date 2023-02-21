@@ -209,30 +209,34 @@ public class Commands {
 
         try {
 
-            String query = "SELECT * FROM trains WHERE train_name = '" + inputTrainName + "'";
+            String query = "SELECT trains.train_name, trains.cargo, trains.speed, trains.maker, trains.produc_year, A.station_name, B.station_name FROM trains LEFT JOIN station A ON A.id = trains.current_location_id LEFT JOIN station B ON B.id = trains.next_destination_id WHERE trains.train_name = '" + inputTrainName + "'";
             statement = connection.createStatement();
             rs=statement.executeQuery(query);
 
             out.println("Train Info: ");
-            while (rs.next()) {
-                out.print("Name: ");
-                out.print(rs.getString(2));
-                out.print("      ");
-                out.print("Cargo: ");
-                out.print(rs.getString(3));
-                out.print("      ");
-                out.print("Speed: ");
-                out.print(rs.getString(4));
-                out.print("mph      ");
-                out.print("Maker: ");
-                out.print(rs.getString(5));
-                out.print("      ");
-                out.print("Production Date: ");
-                out.print(rs.getString(6));
-                out.println();
-                out.println();
-            }
+            rs.next();
+            out.print("Name: ");
+            out.print(rs.getString(1));
+            out.print("      ");
+            out.print("Cargo: ");
+            out.print(rs.getString(2));
+            out.print("      ");
+            out.print("Speed: ");
+            out.print(rs.getString(3));
+            out.print("mph      ");
+            out.print("Maker: ");
+            out.print(rs.getString(4));
+            out.print("      ");
+            out.print("Production Date: ");
+            out.print(rs.getString(5));
+            out.println();
+            out.print("Current Location: ");
+            out.print(rs.getString(6));
+            out.print("      ");
+            out.print("Next Location: ");
+            out.println(rs.getString(7));
 
+            out.println();
             out.println("Value Successfully Inserted");
 
         } catch (Exception e) {
